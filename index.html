@@ -7,11 +7,48 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Your form and other content go here -->
     <div class="container">
         <h1>NAJA SUPERMARKET DAY RECORD</h1>
         <form id="dataForm" onsubmit="handleSubmit(event)">
-            <!-- All form inputs here -->
+            <!-- Input Fields -->
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="purchaseAmount">Purchase Amount</label>
+                <input type="number" id="purchaseAmount" name="purchaseAmount" required>
+            </div>
+            <div class="form-group">
+                <label for="atmPurchase">ATM Purchase</label>
+                <input type="number" id="atmPurchase" name="atmPurchase" value="0">
+            </div>
+            <div class="form-group">
+                <label for="atm">ATM</label>
+                <input type="number" id="atm" name="atm" required>
+            </div>
+            <div class="form-group">
+                <label for="balanceCash">Balance Cash</label>
+                <input type="number" id="balanceCash" name="balanceCash" required>
+            </div>
+            <div class="form-group">
+                <label for="extraIncomeTransaction">Extra Income Transaction</label>
+                <input type="number" id="extraIncomeTransaction" name="extraIncomeTransaction" value="0">
+            </div>
+            <div class="form-group">
+                <label for="extraExpenses">Extra Expenses</label>
+                <input type="text" id="extraExpenses" name="extraExpenses" placeholder="No Extra Expenses">
+            </div>
+            <div class="form-group">
+                <label for="extraExpensesTransaction">Extra Expenses Transaction</label>
+                <input type="number" id="extraExpensesTransaction" name="extraExpensesTransaction" value="0">
+            </div>
+            <div class="form-group">
+                <label for="total">Total</label>
+                <input type="number" id="total" name="total" readonly>
+            </div>
+
+            <!-- Submit Button -->
             <button type="submit">Submit</button>
         </form>
     </div>
