@@ -17,19 +17,19 @@
                 </div>
                 <div class="input-group">
                     <label for="purchaseAmount">Purchase Amount</label>
-                    <input type="number" id="purchaseAmount" name="purchaseAmount" required>
+                    <input type="number" id="purchaseAmount" name="purchaseAmount" required oninput="calculateTotal()">
                 </div>
                 <div class="input-group">
                     <label for="atmPurchase">ATM Purchase</label>
-                    <input type="number" id="atmPurchase" name="atmPurchase" value="0">
+                    <input type="number" id="atmPurchase" name="atmPurchase" value="0" oninput="calculateTotal()">
                 </div>
                 <div class="input-group">
                     <label for="atm">ATM</label>
-                    <input type="number" id="atm" name="atm" required>
+                    <input type="number" id="atm" name="atm" required oninput="calculateTotal()">
                 </div>
                 <div class="input-group">
                     <label for="balanceCash">Balance Cash</label>
-                    <input type="number" id="balanceCash" name="balanceCash" required>
+                    <input type="number" id="balanceCash" name="balanceCash" required oninput="calculateTotal()">
                 </div>
                 <div class="input-group">
                     <label for="extraIncomeTransaction">Extra Income Transaction</label>
@@ -66,6 +66,21 @@
     </div>
 
     <script>
+        // Calculate the total whenever the user changes input
+        function calculateTotal() {
+            const purchaseAmount = parseFloat(document.getElementById('purchaseAmount').value) || 0;
+            const atmPurchase = parseFloat(document.getElementById('atmPurchase').value) || 0;
+            const atm = parseFloat(document.getElementById('atm').value) || 0;
+            const balanceCash = parseFloat(document.getElementById('balanceCash').value) || 0;
+            const extraIncomeTransaction = parseFloat(document.getElementById('extraIncomeTransaction').value) || 0;
+            const extraExpensesTransaction = parseFloat(document.getElementById('extraExpensesTransaction').value) || 0;
+
+            const total = purchaseAmount + atmPurchase + atm + balanceCash + extraIncomeTransaction - extraExpensesTransaction;
+
+            // Set the calculated total in the 'total' input field
+            document.getElementById('total').value = total;
+        }
+
         async function handleSubmit(event) {
             event.preventDefault(); // Prevent form from submitting normally
 
@@ -82,7 +97,7 @@
             };
 
             try {
-                const response = await fetch(https://script.google.com/macros/s/AKfycbxHp_MAUYik5_viTrT6FKEfFCqYXjPxYfYWWsAkYnKppr8Dq3m0x1-1rdC1FoRshYmO/exec, { // Replace with your Apps Script URL
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxHp_MAUYik5_viTrT6FKEfFCqYXjPxYfYWWsAkYnKppr8Dq3m0x1-1rdC1FoRshYmO/exec', { // Replace with your Apps Script URL
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
